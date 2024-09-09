@@ -51,7 +51,15 @@ export function RainbowCodexProvider({
           return user.auth.genNonce as string;
         },
 
-        createMessage: ({ nonce, address, chainId }) => {
+        createMessage: ({
+          nonce,
+          address,
+          chainId,
+        }: {
+          nonce: string;
+          address: string;
+          chainId: number;
+        }) => {
           return new SiweMessage({
             domain: window.location.host,
             address,
@@ -63,11 +71,17 @@ export function RainbowCodexProvider({
           });
         },
 
-        getMessageBody: ({ message }): string => {
+        getMessageBody: ({ message }: { message: SiweMessage }): string => {
           return message.prepareMessage();
         },
 
-        verify: async ({ message, signature }) => {
+        verify: async ({
+          message,
+          signature,
+        }: {
+          message: SiweMessage;
+          signature: string;
+        }) => {
           setIsLoading(true);
           // // 3. Send the signed message to our API
           const response = await fetch(

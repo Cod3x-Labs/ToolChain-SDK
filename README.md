@@ -287,16 +287,16 @@ const tx = await signer.signTransaction({
 ```
 
 
-## @cod3x/wagmi-connector:
+## @cod3x/wagmi:
 Wagmi connector
 ### usage
 Install the package
 ```bash
-npm install @cod3x/wagmi-connector
+npm install @cod3x/wagmi
 ```
 import the provider
 ```typescript
-import {CodexConnector } from '@cod3x/wagmi-connector'
+import {CodexConnector } from '@cod3x/wagmi'
 import {CodexSDK } from '@cod3x/sdk'
 const sdk = new CodexSDK()
 
