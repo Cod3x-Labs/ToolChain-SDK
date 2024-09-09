@@ -1,9 +1,9 @@
-# Moon Packages
+# Codex Packages
 
 # authentication
 
 ## oauth2
-You can authenticate moon with either oauth2 or siwe.
+You can authenticate cod3x with either oauth2 or siwe.
 
 ### redirect 
 ```typescript
@@ -20,7 +20,7 @@ function LoginButton() {
     window.location.href = redirectUrl;
   };
 
-  return <button onClick={handleClick}>Login with Moon</button>;
+  return <button onClick={handleClick}>Login with Codex</button>;
 }
 
 export default LoginButton;
@@ -31,11 +31,11 @@ export default LoginButton;
 ```typescript
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useMoonSDK } from '../hooks/moon';
+import { useCodexSDK } from '../hooks/codex';
 
 function OAuth2Callback() {
   const location = useLocation();
-  const { moon } = useMoonSDK();
+  const { codex } = useCodexSDK();
 
   useEffect(() => {
     async function fetchData() {
@@ -51,7 +51,7 @@ function OAuth2Callback() {
           });
           const data = await response.json();
           console.log(data);
-          moon?.setAccessToken(data.access_token, data.refresh_token);
+          codex?.setAccessToken(data.access_token, data.refresh_token);
         } catch (error) {
           // Handle the error here
           console.error(error);
@@ -108,7 +108,7 @@ import { signMessage } from '@wagmi/core';
 import { SiweMessage } from 'siwe';
 
 import { useAccount } from 'wagmi';
-const MoonSIWE = async (addres) => {
+const CodexSIWE = async (addres) => {
     const userAddress = address ? address : '';
 
     try {
@@ -171,40 +171,26 @@ const MoonSIWE = async (addres) => {
 
 
 
-# @moonup Moon Packages
+# @cod3x Codex Packages
 
 
 ## Usage
-Packages are published to npm under the @moonup scope. To install a package, run:
+Packages are published to npm under the @cod3x scope. To install a package, run:
 ```bash
-npm install @moonup/<package-name>
+npm install @cod3x/<package-name>
 ```
-Refer to the documentation for each package for usage instructions.
-(https://docs.usemoon.ai)[https://docs.usemoon.ai]
 
-
-## @moonup/moon-types: 
-Typescript types for all packages
-### usage
-Install the package
-```bash
-npm install @moonup/moon-types
-```
-Import the types
-```typescript
-import { MOON_SUPPORTED_NETWORKS } from '@moonup/types'
-```
-## @moonup/moon-sdk:
+## @cod3x/sdk:
 Core entry point which will handle everything from jwt token storage to network changes etc, as well as sub class initialisation
 ### usage
 Install the package
 ```bash
-npm install @moonup/moon-sdk
+npm install @cod3x/sdk
 ```
 import the sdk
 ```typescript
-import { MoonSDK } from '@moonup/moon-sdk'
-const sdk = new MoonSDK()
+import { CodexSDK } from '@cod3x/sdk'
+const sdk = new CodexSDK()
 const account = "";
 const abi = [];
 const contract = new ethers.Contract("", abi);
@@ -223,21 +209,21 @@ const data = contract.methods['deposit'](params1, param2).encodeABI();
       })
 ```
 
-## @moonup/moon-api: 
-Moon API client
+## @cod3x/api: 
+Codex API client
 
 ### usage
 Install the package
 ```bash
-npm install @moonup/moon-api
+npm install @cod3x/api
 ```
 
 import the client
 ```typescript
-import { Accounts, ContentType } from '@moonup/moon-api'
+import { Accounts, ContentType } from '@cod3x/api'
 const baseApiParams: ApiConfig = {
     baseUrl:
-    'https://moon-vault-api-git-ew-supabase-migration-moonup.vercel.app',
+    'https://vault-api-git-ew-supabase-migration-moonup.vercel.app',
     baseApiParams: {
         secure: true,
         type: ContentType.Json,
@@ -261,25 +247,25 @@ const newAccount = await accounts.createAccount({})
 const accounts = await accounts.listAccounts()
 ```
 
-## @moonup/ethers: 
+## @cod3x/ethers: 
 ethers.js provider and signer classes
 ### usage
 Install the package
 ```bash
-npm install @moonup/ethers
+npm install @cod3x/ethers
 ```
 import the provider
 ```typescript
-import {MoonSDK} from '@moonup/moon-sdk'
-import { MoonProvider, MoonSigner } from '@moonup/ethers'
-const sdk = new MoonSDK()
-const config: MoonProviderOptions = {
+import {CodexSDK} from '@cod3x/sdk'
+import { CodexProvider, CodexSigner } from '@cod3x/ethers'
+const sdk = new CodexSDK()
+const config: CodexProviderOptions = {
     chainId: 80001 
     SDK: sdk;
     address: '';
 }
 // ethers.js jsonrpcprovider
-const provider = new MoonProvider(config)
+const provider = new CodexProvider(config)
 provider.updateConfig({
     chainId: 80001,
     address: '0x000',
@@ -288,7 +274,7 @@ provider.updateConfig({
 window.ethereum = provider;
 
 // ethers.js signer
-const signer = new MoonSigner(config)
+const signer = new CodexSigner(config)
 const tx = await signer.signTransaction({
     to: '0x000',
     value: '0x000',
@@ -301,37 +287,37 @@ const tx = await signer.signTransaction({
 ```
 
 
-## @moonup/wagmi-connector:
+## @cod3x/wagmi-connector:
 Wagmi connector
 ### usage
 Install the package
 ```bash
-npm install @moonup/wagmi-connector
+npm install @cod3x/wagmi-connector
 ```
 import the provider
 ```typescript
-import {MoonConnector } from '@moonup/wagmi-connector'
-import {MoonSDK } from '@moonup/moon-sdk'
-const sdk = new MoonSDK()
+import {CodexConnector } from '@cod3x/wagmi-connector'
+import {CodexSDK } from '@cod3x/sdk'
+const sdk = new CodexSDK()
 
-const connector = new MoonConnector({
+const connector = new CodexConnector({
     chainId: 80001,
     sdk: sdk,
     address: '0x000',
 })
 ```
 
-## @moonup/moon-rainbowkit
+## @cod3x/rainbowkit
 Rainbow kit library
 ### usage
 Install the package
 ```bash
-npm install @moonup/moon-rainbowkit
+npm install @cod3x/rainbowkit
 ```
 
 import the provider
 ```typescript
-import {RainbowKitUseMoonProvider} from '@moonup/moon-rainbowkit';
+import {RainbowKitUseCodexProvider} from '@cod3x/rainbowkit';
 import {
   RainbowKitProvider,
 } from '@rainbow-me/rainbowkit';
@@ -346,7 +332,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <WagmiConfig {...etc}>
-      <RainbowKitUseMoonProvider
+      <RainbowKitUseCodexProvider
        onSignIn={onSignIn} onSignOut={onSignOut}
       >
         <RainbowKitProvider {...etc}>
@@ -361,18 +347,18 @@ export default function App({ Component, pageProps }: AppProps) {
 ```
 
 
-## @moonup/viem
+## @cod3x/viem
 Viem library
 ### usage
 Install the package
 ```bash
-npm install @moonup/viem
+npm install @cod3x/viem
 ```
 import the provider
 ```typescript
-import { MoonSDK } from '@moonup/moon-sdk'
-import { createAccount } from '@moonup/viem'
-const sdk = new MoonSDK()
+import { CodexSDK } from '@cod3x/sdk'
+import { createAccount } from '@cod3x/viem'
+const sdk = new CodexSDK()
 const config = {
     SDK: sdk,
     ethereumAddress: '0x000',
@@ -381,11 +367,11 @@ const viem = createAccount(config)
 const account = await viem.getAccount()
 ```
 
-## @moonup/moon-react
+## @cod3x/react
 React components
 ### usage
 Install the package
 ```bash
-npm install @moonup/moon-react
+npm install @cod3x/react
 ```
 
