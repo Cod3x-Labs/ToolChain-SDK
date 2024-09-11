@@ -19,17 +19,9 @@ import {
   GetConvertToSharesParams,
   GetMaxDepositData,
   GetMaxDepositParams,
-  GetMaxMintData,
-  GetMaxMintParams,
-  GetMaxRedeemData,
-  GetMaxRedeemParams,
-  GetMaxWithdrawData,
-  GetMaxWithdrawParams,
   GetTotalAssetsData,
   GetTotalAssetsParams,
   InputBody,
-  MintData,
-  RedeemData,
   WithdrawData,
 } from './data-contracts';
 import { ContentType, HttpClient, RequestParams } from './http-client';
@@ -64,15 +56,15 @@ export class Erc4626<SecurityDataType = unknown> {
    *
    * @tags ERC4626
    * @name GetAsset
-   * @request GET:/erc4626/{address}/asset
+   * @request GET:/erc4626/{account}/asset
    * @secure
    */
   getAsset = (
-    { address, ...query }: GetAssetParams,
+    { account, ...query }: GetAssetParams,
     params: RequestParams = {}
   ) =>
     this.http.request<GetAssetData, any>({
-      path: `/erc4626/${address}/asset`,
+      path: `/erc4626/${account}/asset`,
       method: 'GET',
       query: query,
       secure: true,
@@ -84,15 +76,15 @@ export class Erc4626<SecurityDataType = unknown> {
    *
    * @tags ERC4626
    * @name GetConvertToAssets
-   * @request GET:/erc4626/{address}/convertToAssets
+   * @request GET:/erc4626/{account}/convertToAssets
    * @secure
    */
   getConvertToAssets = (
-    { address, ...query }: GetConvertToAssetsParams,
+    { account, ...query }: GetConvertToAssetsParams,
     params: RequestParams = {}
   ) =>
     this.http.request<GetConvertToAssetsData, any>({
-      path: `/erc4626/${address}/convertToAssets`,
+      path: `/erc4626/${account}/convertToAssets`,
       method: 'GET',
       query: query,
       secure: true,
@@ -104,15 +96,15 @@ export class Erc4626<SecurityDataType = unknown> {
    *
    * @tags ERC4626
    * @name GetConvertToShares
-   * @request GET:/erc4626/{address}/convertToShares
+   * @request GET:/erc4626/{account}/convertToShares
    * @secure
    */
   getConvertToShares = (
-    { address, ...query }: GetConvertToSharesParams,
+    { account, ...query }: GetConvertToSharesParams,
     params: RequestParams = {}
   ) =>
     this.http.request<GetConvertToSharesData, any>({
-      path: `/erc4626/${address}/convertToShares`,
+      path: `/erc4626/${account}/convertToShares`,
       method: 'GET',
       query: query,
       secure: true,
@@ -124,75 +116,15 @@ export class Erc4626<SecurityDataType = unknown> {
    *
    * @tags ERC4626
    * @name GetMaxDeposit
-   * @request GET:/erc4626/{address}/maxDeposit
+   * @request GET:/erc4626/{account}/maxDeposit
    * @secure
    */
   getMaxDeposit = (
-    { address, ...query }: GetMaxDepositParams,
+    { account, ...query }: GetMaxDepositParams,
     params: RequestParams = {}
   ) =>
     this.http.request<GetMaxDepositData, any>({
-      path: `/erc4626/${address}/maxDeposit`,
-      method: 'GET',
-      query: query,
-      secure: true,
-      format: 'json',
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags ERC4626
-   * @name GetMaxMint
-   * @request GET:/erc4626/{address}/maxMint
-   * @secure
-   */
-  getMaxMint = (
-    { address, ...query }: GetMaxMintParams,
-    params: RequestParams = {}
-  ) =>
-    this.http.request<GetMaxMintData, any>({
-      path: `/erc4626/${address}/maxMint`,
-      method: 'GET',
-      query: query,
-      secure: true,
-      format: 'json',
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags ERC4626
-   * @name GetMaxRedeem
-   * @request GET:/erc4626/{address}/maxRedeem
-   * @secure
-   */
-  getMaxRedeem = (
-    { address, ...query }: GetMaxRedeemParams,
-    params: RequestParams = {}
-  ) =>
-    this.http.request<GetMaxRedeemData, any>({
-      path: `/erc4626/${address}/maxRedeem`,
-      method: 'GET',
-      query: query,
-      secure: true,
-      format: 'json',
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags ERC4626
-   * @name GetMaxWithdraw
-   * @request GET:/erc4626/{address}/maxWithdraw
-   * @secure
-   */
-  getMaxWithdraw = (
-    { address, ...query }: GetMaxWithdrawParams,
-    params: RequestParams = {}
-  ) =>
-    this.http.request<GetMaxWithdrawData, any>({
-      path: `/erc4626/${address}/maxWithdraw`,
+      path: `/erc4626/${account}/maxDeposit`,
       method: 'GET',
       query: query,
       secure: true,
@@ -204,54 +136,18 @@ export class Erc4626<SecurityDataType = unknown> {
    *
    * @tags ERC4626
    * @name GetTotalAssets
-   * @request GET:/erc4626/{address}/totalAssets
+   * @request GET:/erc4626/{account}/totalAssets
    * @secure
    */
   getTotalAssets = (
-    { address, ...query }: GetTotalAssetsParams,
+    { account, ...query }: GetTotalAssetsParams,
     params: RequestParams = {}
   ) =>
     this.http.request<GetTotalAssetsData, any>({
-      path: `/erc4626/${address}/totalAssets`,
+      path: `/erc4626/${account}/totalAssets`,
       method: 'GET',
       query: query,
       secure: true,
-      format: 'json',
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags ERC4626
-   * @name Mint
-   * @request POST:/erc4626/{address}/mint
-   * @secure
-   */
-  mint = (address: string, data: InputBody, params: RequestParams = {}) =>
-    this.http.request<MintData, any>({
-      path: `/erc4626/${address}/mint`,
-      method: 'POST',
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: 'json',
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags ERC4626
-   * @name Redeem
-   * @request POST:/erc4626/{address}/redeem
-   * @secure
-   */
-  redeem = (address: string, data: InputBody, params: RequestParams = {}) =>
-    this.http.request<RedeemData, any>({
-      path: `/erc4626/${address}/redeem`,
-      method: 'POST',
-      body: data,
-      secure: true,
-      type: ContentType.Json,
       format: 'json',
       ...params,
     });

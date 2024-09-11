@@ -18,14 +18,13 @@ import {
   GetExecutorAddressData,
   GetExecutorAddressParams1VersionEnum,
   GetLiquiditySourcesData,
-  GetQuoteBody,
   GetQuoteResult,
   GetRouterAddressData,
   GetRouterAddressParams1VersionEnum,
   GetSupportedChainsData,
   GetSupportedTokensData,
-  SwapInput,
-  SwapOutput,
+  OdosSwapInputBody,
+  SwapData,
 } from './data-contracts';
 
 export namespace Odos {
@@ -150,7 +149,7 @@ export namespace Odos {
       accountName: string;
     };
     export type RequestQuery = {};
-    export type RequestBody = GetQuoteBody;
+    export type RequestBody = OdosSwapInputBody;
     export type RequestHeaders = {
       Authorization: string;
     };
@@ -233,10 +232,10 @@ export namespace Odos {
       accountName: string;
     };
     export type RequestQuery = {};
-    export type RequestBody = SwapInput;
+    export type RequestBody = OdosSwapInputBody;
     export type RequestHeaders = {
       Authorization: string;
     };
-    export type ResponseBody = SwapOutput;
+    export type ResponseBody = SwapData;
   }
 }

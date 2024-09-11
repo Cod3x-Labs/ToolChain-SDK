@@ -1,6 +1,6 @@
 {
     "name": "@cod3x/sdk",
-    "version": "1.0.18",
+    "version": "1.0.19",
     "author": "0xEwhal <ewhal@bytemasons.com>",
     "type": "commonjs",
     "main": "./dist/index.js",

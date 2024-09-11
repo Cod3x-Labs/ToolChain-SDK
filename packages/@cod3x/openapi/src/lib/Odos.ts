@@ -20,7 +20,6 @@ import {
   GetExecutorAddressParams,
   GetLiquiditySourcesData,
   GetLiquiditySourcesParams,
-  GetQuoteBody,
   GetQuoteResult,
   GetRouterAddressData,
   GetRouterAddressParams,
@@ -28,8 +27,8 @@ import {
   GetSupportedChainsParams,
   GetSupportedTokensData,
   GetSupportedTokensParams,
-  SwapInput,
-  SwapOutput,
+  OdosSwapInputBody,
+  SwapData,
 } from './data-contracts';
 import { ContentType, HttpClient, RequestParams } from './http-client';
 
@@ -152,7 +151,7 @@ export class Odos<SecurityDataType = unknown> {
    */
   getQuote = (
     accountName: string,
-    data: GetQuoteBody,
+    data: OdosSwapInputBody,
     params: RequestParams = {}
   ) =>
     this.http.request<GetQuoteResult, any>({
@@ -232,8 +231,12 @@ export class Odos<SecurityDataType = unknown> {
    * @request POST:/odos/{accountName}/swap
    * @secure
    */
-  swap = (accountName: string, data: SwapInput, params: RequestParams = {}) =>
-    this.http.request<SwapOutput, any>({
+  swap = (
+    accountName: string,
+    data: OdosSwapInputBody,
+    params: RequestParams = {}
+  ) =>
+    this.http.request<SwapData, any>({
       path: `/odos/${accountName}/swap`,
       method: 'POST',
       body: data,

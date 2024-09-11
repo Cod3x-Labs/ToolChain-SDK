@@ -28,11 +28,11 @@ import {
   GrantRoleData,
   HasRoleData,
   HasRoleParams,
-  InputBody,
   IsPausedParams2,
   IsPausedResult,
   LeverageErc20Data,
   LeverageNativeData,
+  LeveragerInputBody,
   PauseData,
   RenounceRoleData,
   RevokeRoleData,
@@ -59,7 +59,7 @@ export class Leverager<SecurityDataType = unknown> {
    */
   deleverageErc20 = (
     accountName: string,
-    data: InputBody,
+    data: LeveragerInputBody,
     params: RequestParams = {}
   ) =>
     this.http.request<DeleverageErc20Data, any>({
@@ -81,7 +81,7 @@ export class Leverager<SecurityDataType = unknown> {
    */
   deleverageNative = (
     accountName: string,
-    data: InputBody,
+    data: LeveragerInputBody,
     params: RequestParams = {}
   ) =>
     this.http.request<DeleverageNativeData, any>({
@@ -103,7 +103,7 @@ export class Leverager<SecurityDataType = unknown> {
    */
   executeOperation = (
     accountName: string,
-    data: InputBody,
+    data: LeveragerInputBody,
     params: RequestParams = {}
   ) =>
     this.http.request<ExecuteOperationData, any>({
@@ -233,7 +233,7 @@ export class Leverager<SecurityDataType = unknown> {
    */
   grantRole = (
     accountName: string,
-    data: InputBody,
+    data: LeveragerInputBody,
     params: RequestParams = {}
   ) =>
     this.http.request<GrantRoleData, any>({
@@ -289,7 +289,7 @@ export class Leverager<SecurityDataType = unknown> {
    */
   leverageErc20 = (
     accountName: string,
-    data: InputBody,
+    data: LeveragerInputBody,
     params: RequestParams = {}
   ) =>
     this.http.request<LeverageErc20Data, any>({
@@ -311,7 +311,7 @@ export class Leverager<SecurityDataType = unknown> {
    */
   leverageNative = (
     accountName: string,
-    data: InputBody,
+    data: LeveragerInputBody,
     params: RequestParams = {}
   ) =>
     this.http.request<LeverageNativeData, any>({
@@ -331,7 +331,11 @@ export class Leverager<SecurityDataType = unknown> {
    * @request POST:/leverager/{accountName}/pause
    * @secure
    */
-  pause = (accountName: string, data: InputBody, params: RequestParams = {}) =>
+  pause = (
+    accountName: string,
+    data: LeveragerInputBody,
+    params: RequestParams = {}
+  ) =>
     this.http.request<PauseData, any>({
       path: `/leverager/${accountName}/pause`,
       method: 'POST',
@@ -351,7 +355,7 @@ export class Leverager<SecurityDataType = unknown> {
    */
   renounceRole = (
     accountName: string,
-    data: InputBody,
+    data: LeveragerInputBody,
     params: RequestParams = {}
   ) =>
     this.http.request<RenounceRoleData, any>({
@@ -373,7 +377,7 @@ export class Leverager<SecurityDataType = unknown> {
    */
   revokeRole = (
     accountName: string,
-    data: InputBody,
+    data: LeveragerInputBody,
     params: RequestParams = {}
   ) =>
     this.http.request<RevokeRoleData, any>({
@@ -415,7 +419,7 @@ export class Leverager<SecurityDataType = unknown> {
    */
   unpause = (
     accountName: string,
-    data: InputBody,
+    data: LeveragerInputBody,
     params: RequestParams = {}
   ) =>
     this.http.request<UnpauseData, any>({

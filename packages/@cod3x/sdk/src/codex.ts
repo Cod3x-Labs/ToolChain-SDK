@@ -17,10 +17,13 @@ import {
   InputBody,
   LendingPool,
   Leverager,
+  Lifi,
   Litecoin,
   Odos,
+  Onramper,
   Ripple,
   Solana,
+  Thorswap,
   TransactionData,
   Tron,
 } from '@cod3x/openapi';
@@ -131,6 +134,9 @@ export class CodexSDK extends EventEmitter {
   private BitcoincashSDK: Bitcoincash;
   private DogecoinSDK: Dogecoin;
   private CodexAPIClient: SupabaseClient;
+  private LifiSDK: Lifi;
+  private OnramperSDK: Onramper;
+  private ThorswapSDK: Thorswap;
   private http: HttpClient;
   isAuthenticated = false;
   private config: CodexSDKConfig;
@@ -233,10 +239,13 @@ export class CodexSDK extends EventEmitter {
 
     this.TronSDK = new Tron(this.http);
 
-    this.OdosSDK = new Odos(this.http);
     this.Erc4626SDK = new Erc4626(this.http);
     this.LendingPoolSDK = new LendingPool(this.http);
     this.LeveragerSDK = new Leverager(this.http);
+    this.LifiSDK = new Lifi(this.http);
+    this.OdosSDK = new Odos(this.http);
+    this.OnramperSDK = new Onramper(this.http);
+    this.ThorswapSDK = new Thorswap(this.http);
 
     this.connect();
   }
@@ -378,6 +387,18 @@ export class CodexSDK extends EventEmitter {
 
   public getOdosSDK(): Odos {
     return this.OdosSDK;
+  }
+
+  public getLifiSDK(): Lifi {
+    return this.LifiSDK;
+  }
+
+  public getOnramperSDK(): Onramper {
+    return this.OnramperSDK;
+  }
+
+  public getThorswapSDK(): Thorswap {
+    return this.ThorswapSDK;
   }
 
   /**

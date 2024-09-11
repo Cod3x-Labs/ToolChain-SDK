@@ -1,6 +1,6 @@
 {
     "name": "@cod3x/openapi",
-    "version": "0.0.29",
+    "version": "0.0.31",
     "type": "commonjs",
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",

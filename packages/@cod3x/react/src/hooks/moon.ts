@@ -52,6 +52,9 @@ export const useErc1155SDK = createCodexHook('getErc1155SDK');
 export const useErc721SDK = createCodexHook('getErc721SDK');
 
 export const useErc4626SDK = createCodexHook('getErc4626SDK');
-export const useOdosSDK = createCodexHook('getOdosSDK');
-export const useLeveragerSDK = createCodexHook('getLeveragerSDK');
 export const useLendingPoolSDK = createCodexHook('getLendingPoolSDK');
+export const useLeveragerSDK = createCodexHook('getLeveragerSDK');
+export const useLifiSDK = createCodexHook('getLifiSDK');
+export const useOdosSDK = createCodexHook('getOdosSDK');
+export const useOnramperSDK = createCodexHook('getOnramperSDK');
+export const useThorswapSDK = createCodexHook('getThorswapSDK');

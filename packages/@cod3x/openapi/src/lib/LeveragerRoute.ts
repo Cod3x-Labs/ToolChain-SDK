@@ -21,10 +21,10 @@ import {
   GetWethData,
   GrantRoleData,
   HasRoleData,
-  InputBody,
   IsPausedResult,
   LeverageErc20Data,
   LeverageNativeData,
+  LeveragerInputBody,
   PauseData,
   RenounceRoleData,
   RevokeRoleData,
@@ -45,7 +45,7 @@ export namespace Leverager {
       accountName: string;
     };
     export type RequestQuery = {};
-    export type RequestBody = InputBody;
+    export type RequestBody = LeveragerInputBody;
     export type RequestHeaders = {
       Authorization: string;
     };
@@ -64,7 +64,7 @@ export namespace Leverager {
       accountName: string;
     };
     export type RequestQuery = {};
-    export type RequestBody = InputBody;
+    export type RequestBody = LeveragerInputBody;
     export type RequestHeaders = {
       Authorization: string;
     };
@@ -83,7 +83,7 @@ export namespace Leverager {
       accountName: string;
     };
     export type RequestQuery = {};
-    export type RequestBody = InputBody;
+    export type RequestBody = LeveragerInputBody;
     export type RequestHeaders = {
       Authorization: string;
     };
@@ -223,7 +223,7 @@ export namespace Leverager {
       accountName: string;
     };
     export type RequestQuery = {};
-    export type RequestBody = InputBody;
+    export type RequestBody = LeveragerInputBody;
     export type RequestHeaders = {
       Authorization: string;
     };
@@ -284,7 +284,7 @@ export namespace Leverager {
       accountName: string;
     };
     export type RequestQuery = {};
-    export type RequestBody = InputBody;
+    export type RequestBody = LeveragerInputBody;
     export type RequestHeaders = {
       Authorization: string;
     };
@@ -303,7 +303,7 @@ export namespace Leverager {
       accountName: string;
     };
     export type RequestQuery = {};
-    export type RequestBody = InputBody;
+    export type RequestBody = LeveragerInputBody;
     export type RequestHeaders = {
       Authorization: string;
     };
@@ -322,7 +322,7 @@ export namespace Leverager {
       accountName: string;
     };
     export type RequestQuery = {};
-    export type RequestBody = InputBody;
+    export type RequestBody = LeveragerInputBody;
     export type RequestHeaders = {
       Authorization: string;
     };
@@ -341,7 +341,7 @@ export namespace Leverager {
       accountName: string;
     };
     export type RequestQuery = {};
-    export type RequestBody = InputBody;
+    export type RequestBody = LeveragerInputBody;
     export type RequestHeaders = {
       Authorization: string;
     };
@@ -360,7 +360,7 @@ export namespace Leverager {
       accountName: string;
     };
     export type RequestQuery = {};
-    export type RequestBody = InputBody;
+    export type RequestBody = LeveragerInputBody;
     export type RequestHeaders = {
       Authorization: string;
     };
@@ -400,7 +400,7 @@ export namespace Leverager {
       accountName: string;
     };
     export type RequestQuery = {};
-    export type RequestBody = InputBody;
+    export type RequestBody = LeveragerInputBody;
     export type RequestHeaders = {
       Authorization: string;
     };

@@ -10,7 +10,7 @@
  */
 
 import {
-  BorrowResult,
+  BorrowData,
   DepositResult,
   FlashLoanData,
   GetAddressesProviderData,
@@ -29,11 +29,11 @@ import {
   GetReservesListParams,
   GetUserAccountDataData,
   GetUserAccountDataParams,
-  InputBody,
   IsPausedData,
   IsPausedParams,
+  LendingPoolInputBody,
   LiquidationCallData,
-  RepayResult,
+  RepayData,
   SetUserUseReserveAsCollateralData,
   SwapBorrowRateModeData,
 } from './data-contracts';
@@ -54,8 +54,12 @@ export class LendingPool<SecurityDataType = unknown> {
    * @request POST:/lending-pool/{accountName}/borrow
    * @secure
    */
-  borrow = (accountName: string, data: InputBody, params: RequestParams = {}) =>
-    this.http.request<BorrowResult, any>({
+  borrow = (
+    accountName: string,
+    data: LendingPoolInputBody,
+    params: RequestParams = {}
+  ) =>
+    this.http.request<BorrowData, any>({
       path: `/lending-pool/${accountName}/borrow`,
       method: 'POST',
       body: data,
@@ -74,7 +78,7 @@ export class LendingPool<SecurityDataType = unknown> {
    */
   deposit = (
     accountName: string,
-    data: InputBody,
+    data: LendingPoolInputBody,
     params: RequestParams = {}
   ) =>
     this.http.request<DepositResult, any>({
@@ -96,7 +100,7 @@ export class LendingPool<SecurityDataType = unknown> {
    */
   flashLoan = (
     accountName: string,
-    data: InputBody,
+    data: LendingPoolInputBody,
     params: RequestParams = {}
   ) =>
     this.http.request<FlashLoanData, any>({
@@ -292,7 +296,7 @@ export class LendingPool<SecurityDataType = unknown> {
    */
   liquidationCall = (
     accountName: string,
-    data: InputBody,
+    data: LendingPoolInputBody,
     params: RequestParams = {}
   ) =>
     this.http.request<LiquidationCallData, any>({
@@ -312,8 +316,12 @@ export class LendingPool<SecurityDataType = unknown> {
    * @request POST:/lending-pool/{accountName}/repay
    * @secure
    */
-  repay = (accountName: string, data: InputBody, params: RequestParams = {}) =>
-    this.http.request<RepayResult, any>({
+  repay = (
+    accountName: string,
+    data: LendingPoolInputBody,
+    params: RequestParams = {}
+  ) =>
+    this.http.request<RepayData, any>({
       path: `/lending-pool/${accountName}/repay`,
       method: 'POST',
       body: data,
@@ -332,7 +340,7 @@ export class LendingPool<SecurityDataType = unknown> {
    */
   setUserUseReserveAsCollateral = (
     accountName: string,
-    data: InputBody,
+    data: LendingPoolInputBody,
     params: RequestParams = {}
   ) =>
     this.http.request<SetUserUseReserveAsCollateralData, any>({
@@ -354,7 +362,7 @@ export class LendingPool<SecurityDataType = unknown> {
    */
   swapBorrowRateMode = (
     accountName: string,
-    data: InputBody,
+    data: LendingPoolInputBody,
     params: RequestParams = {}
   ) =>
     this.http.request<SwapBorrowRateModeData, any>({

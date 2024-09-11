@@ -10,7 +10,7 @@
  */
 
 import {
-  BorrowResult,
+  BorrowData,
   DepositResult,
   FlashLoanData,
   GetAddressesProviderData,
@@ -21,10 +21,10 @@ import {
   GetReserveDataData,
   GetReservesListData,
   GetUserAccountDataData,
-  InputBody,
   IsPausedData,
+  LendingPoolInputBody,
   LiquidationCallData,
-  RepayResult,
+  RepayData,
   SetUserUseReserveAsCollateralData,
   SwapBorrowRateModeData,
 } from './data-contracts';
@@ -42,11 +42,11 @@ export namespace LendingPool {
       accountName: string;
     };
     export type RequestQuery = {};
-    export type RequestBody = InputBody;
+    export type RequestBody = LendingPoolInputBody;
     export type RequestHeaders = {
       Authorization: string;
     };
-    export type ResponseBody = BorrowResult;
+    export type ResponseBody = BorrowData;
   }
 
   /**
@@ -61,7 +61,7 @@ export namespace LendingPool {
       accountName: string;
     };
     export type RequestQuery = {};
-    export type RequestBody = InputBody;
+    export type RequestBody = LendingPoolInputBody;
     export type RequestHeaders = {
       Authorization: string;
     };
@@ -80,7 +80,7 @@ export namespace LendingPool {
       accountName: string;
     };
     export type RequestQuery = {};
-    export type RequestBody = InputBody;
+    export type RequestBody = LendingPoolInputBody;
     export type RequestHeaders = {
       Authorization: string;
     };
@@ -281,7 +281,7 @@ export namespace LendingPool {
       accountName: string;
     };
     export type RequestQuery = {};
-    export type RequestBody = InputBody;
+    export type RequestBody = LendingPoolInputBody;
     export type RequestHeaders = {
       Authorization: string;
     };
@@ -300,11 +300,11 @@ export namespace LendingPool {
       accountName: string;
     };
     export type RequestQuery = {};
-    export type RequestBody = InputBody;
+    export type RequestBody = LendingPoolInputBody;
     export type RequestHeaders = {
       Authorization: string;
     };
-    export type ResponseBody = RepayResult;
+    export type ResponseBody = RepayData;
   }
 
   /**
@@ -319,7 +319,7 @@ export namespace LendingPool {
       accountName: string;
     };
     export type RequestQuery = {};
-    export type RequestBody = InputBody;
+    export type RequestBody = LendingPoolInputBody;
     export type RequestHeaders = {
       Authorization: string;
     };
@@ -338,7 +338,7 @@ export namespace LendingPool {
       accountName: string;
     };
     export type RequestQuery = {};
-    export type RequestBody = InputBody;
+    export type RequestBody = LendingPoolInputBody;
     export type RequestHeaders = {
       Authorization: string;
     };

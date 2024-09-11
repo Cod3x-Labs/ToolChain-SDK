@@ -1,6 +1,6 @@
 {
     "name": "@cod3x/viem",
-    "version": "0.0.15",
+    "version": "0.0.16",
     "author": "0xEwhal <ewhal@bytemasons.com>",
     "type": "commonjs",
     "main": "./dist/index.js",

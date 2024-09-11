@@ -11,13 +11,13 @@
 
 import {
   ApproveData,
+  ERC20InputBody,
   GetAllowanceData,
   GetBalanceOfData,
   GetDecimalsData,
   GetNameData,
   GetSymbolData,
   GetTotalSupplyData,
-  InputBody,
   TransferData,
   TransferFromData,
 } from './data-contracts';
@@ -35,7 +35,7 @@ export namespace Erc20 {
       address: string;
     };
     export type RequestQuery = {};
-    export type RequestBody = InputBody;
+    export type RequestBody = ERC20InputBody;
     export type RequestHeaders = {
       Authorization: string;
     };
@@ -46,14 +46,15 @@ export namespace Erc20 {
    * No description
    * @tags ERC20
    * @name GetAllowance
-   * @request GET:/erc20/{address}/allowance
+   * @request GET:/erc20/{account}/allowance
    * @secure
    */
   export namespace GetAllowance {
     export type RequestParams = {
-      address: string;
+      account: string;
     };
     export type RequestQuery = {
+      address: string;
       chainId: string;
       owner: string;
       spender: string;
@@ -69,15 +70,15 @@ export namespace Erc20 {
    * No description
    * @tags ERC20
    * @name GetBalanceOf
-   * @request GET:/erc20/{address}/balanceOf
+   * @request GET:/erc20/{account}/balanceOf
    * @secure
    */
   export namespace GetBalanceOf {
     export type RequestParams = {
-      address: string;
+      account: string;
     };
     export type RequestQuery = {
-      account: string;
+      address: string;
       chainId: string;
     };
     export type RequestBody = never;
@@ -91,14 +92,15 @@ export namespace Erc20 {
    * No description
    * @tags ERC20
    * @name GetDecimals
-   * @request GET:/erc20/{address}/decimals
+   * @request GET:/erc20/{account}/decimals
    * @secure
    */
   export namespace GetDecimals {
     export type RequestParams = {
-      address: string;
+      account: string;
     };
     export type RequestQuery = {
+      address: string;
       chainId: string;
     };
     export type RequestBody = never;
@@ -112,14 +114,15 @@ export namespace Erc20 {
    * No description
    * @tags ERC20
    * @name GetName
-   * @request GET:/erc20/{address}/name
+   * @request GET:/erc20/{account}/name
    * @secure
    */
   export namespace GetName {
     export type RequestParams = {
-      address: string;
+      account: string;
     };
     export type RequestQuery = {
+      address: string;
       chainId: string;
     };
     export type RequestBody = never;
@@ -133,14 +136,15 @@ export namespace Erc20 {
    * No description
    * @tags ERC20
    * @name GetSymbol
-   * @request GET:/erc20/{address}/symbol
+   * @request GET:/erc20/{account}/symbol
    * @secure
    */
   export namespace GetSymbol {
     export type RequestParams = {
-      address: string;
+      account: string;
     };
     export type RequestQuery = {
+      address: string;
       chainId: string;
     };
     export type RequestBody = never;
@@ -154,14 +158,15 @@ export namespace Erc20 {
    * No description
    * @tags ERC20
    * @name GetTotalSupply
-   * @request GET:/erc20/{address}/totalSupply
+   * @request GET:/erc20/{account}/totalSupply
    * @secure
    */
   export namespace GetTotalSupply {
     export type RequestParams = {
-      address: string;
+      account: string;
     };
     export type RequestQuery = {
+      address: string;
       chainId: string;
     };
     export type RequestBody = never;
@@ -183,7 +188,7 @@ export namespace Erc20 {
       address: string;
     };
     export type RequestQuery = {};
-    export type RequestBody = InputBody;
+    export type RequestBody = ERC20InputBody;
     export type RequestHeaders = {
       Authorization: string;
     };
@@ -202,7 +207,7 @@ export namespace Erc20 {
       address: string;
     };
     export type RequestQuery = {};
-    export type RequestBody = InputBody;
+    export type RequestBody = ERC20InputBody;
     export type RequestHeaders = {
       Authorization: string;
     };

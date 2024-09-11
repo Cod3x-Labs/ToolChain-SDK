@@ -11,6 +11,7 @@
 
 import {
   ApproveData,
+  ERC20InputBody,
   GetAllowanceData,
   GetAllowanceParams,
   GetBalanceOfData,
@@ -23,7 +24,6 @@ import {
   GetSymbolParams,
   GetTotalSupplyData,
   GetTotalSupplyParams,
-  InputBody,
   TransferData,
   TransferFromData,
 } from './data-contracts';
@@ -44,7 +44,11 @@ export class Erc20<SecurityDataType = unknown> {
    * @request POST:/erc20/{address}/approve
    * @secure
    */
-  approve = (address: string, data: InputBody, params: RequestParams = {}) =>
+  approve = (
+    address: string,
+    data: ERC20InputBody,
+    params: RequestParams = {}
+  ) =>
     this.http.request<ApproveData, any>({
       path: `/erc20/${address}/approve`,
       method: 'POST',
@@ -59,15 +63,15 @@ export class Erc20<SecurityDataType = unknown> {
    *
    * @tags ERC20
    * @name GetAllowance
-   * @request GET:/erc20/{address}/allowance
+   * @request GET:/erc20/{account}/allowance
    * @secure
    */
   getAllowance = (
-    { address, ...query }: GetAllowanceParams,
+    { account, ...query }: GetAllowanceParams,
     params: RequestParams = {}
   ) =>
     this.http.request<GetAllowanceData, any>({
-      path: `/erc20/${address}/allowance`,
+      path: `/erc20/${account}/allowance`,
       method: 'GET',
       query: query,
       secure: true,
@@ -79,15 +83,15 @@ export class Erc20<SecurityDataType = unknown> {
    *
    * @tags ERC20
    * @name GetBalanceOf
-   * @request GET:/erc20/{address}/balanceOf
+   * @request GET:/erc20/{account}/balanceOf
    * @secure
    */
   getBalanceOf = (
-    { address, ...query }: GetBalanceOfParams,
+    { account, ...query }: GetBalanceOfParams,
     params: RequestParams = {}
   ) =>
     this.http.request<GetBalanceOfData, any>({
-      path: `/erc20/${address}/balanceOf`,
+      path: `/erc20/${account}/balanceOf`,
       method: 'GET',
       query: query,
       secure: true,
@@ -99,15 +103,15 @@ export class Erc20<SecurityDataType = unknown> {
    *
    * @tags ERC20
    * @name GetDecimals
-   * @request GET:/erc20/{address}/decimals
+   * @request GET:/erc20/{account}/decimals
    * @secure
    */
   getDecimals = (
-    { address, ...query }: GetDecimalsParams,
+    { account, ...query }: GetDecimalsParams,
     params: RequestParams = {}
   ) =>
     this.http.request<GetDecimalsData, any>({
-      path: `/erc20/${address}/decimals`,
+      path: `/erc20/${account}/decimals`,
       method: 'GET',
       query: query,
       secure: true,
@@ -119,15 +123,15 @@ export class Erc20<SecurityDataType = unknown> {
    *
    * @tags ERC20
    * @name GetName
-   * @request GET:/erc20/{address}/name
+   * @request GET:/erc20/{account}/name
    * @secure
    */
   getName = (
-    { address, ...query }: GetNameParams,
+    { account, ...query }: GetNameParams,
     params: RequestParams = {}
   ) =>
     this.http.request<GetNameData, any>({
-      path: `/erc20/${address}/name`,
+      path: `/erc20/${account}/name`,
       method: 'GET',
       query: query,
       secure: true,
@@ -139,15 +143,15 @@ export class Erc20<SecurityDataType = unknown> {
    *
    * @tags ERC20
    * @name GetSymbol
-   * @request GET:/erc20/{address}/symbol
+   * @request GET:/erc20/{account}/symbol
    * @secure
    */
   getSymbol = (
-    { address, ...query }: GetSymbolParams,
+    { account, ...query }: GetSymbolParams,
     params: RequestParams = {}
   ) =>
     this.http.request<GetSymbolData, any>({
-      path: `/erc20/${address}/symbol`,
+      path: `/erc20/${account}/symbol`,
       method: 'GET',
       query: query,
       secure: true,
@@ -159,15 +163,15 @@ export class Erc20<SecurityDataType = unknown> {
    *
    * @tags ERC20
    * @name GetTotalSupply
-   * @request GET:/erc20/{address}/totalSupply
+   * @request GET:/erc20/{account}/totalSupply
    * @secure
    */
   getTotalSupply = (
-    { address, ...query }: GetTotalSupplyParams,
+    { account, ...query }: GetTotalSupplyParams,
     params: RequestParams = {}
   ) =>
     this.http.request<GetTotalSupplyData, any>({
-      path: `/erc20/${address}/totalSupply`,
+      path: `/erc20/${account}/totalSupply`,
       method: 'GET',
       query: query,
       secure: true,
@@ -182,7 +186,11 @@ export class Erc20<SecurityDataType = unknown> {
    * @request POST:/erc20/{address}/transfer
    * @secure
    */
-  transfer = (address: string, data: InputBody, params: RequestParams = {}) =>
+  transfer = (
+    address: string,
+    data: ERC20InputBody,
+    params: RequestParams = {}
+  ) =>
     this.http.request<TransferData, any>({
       path: `/erc20/${address}/transfer`,
       method: 'POST',
@@ -202,7 +210,7 @@ export class Erc20<SecurityDataType = unknown> {
    */
   transferFrom = (
     address: string,
-    data: InputBody,
+    data: ERC20InputBody,
     params: RequestParams = {}
   ) =>
     this.http.request<TransferFromData, any>({
