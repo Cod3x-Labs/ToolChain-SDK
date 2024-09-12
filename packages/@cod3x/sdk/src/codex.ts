@@ -1,4 +1,6 @@
 import {
+  Aavepool,
+  Aavev3Rewards,
   Accounts,
   ApiConfig,
   Bitcoin,
@@ -137,6 +139,8 @@ export class CodexSDK extends EventEmitter {
   private LifiSDK: Lifi;
   private OnramperSDK: Onramper;
   private ThorswapSDK: Thorswap;
+  private AavepoolSDK: Aavepool;
+  private Aavev3RewardsSDK: Aavev3Rewards;
   private http: HttpClient;
   isAuthenticated = false;
   private config: CodexSDKConfig;
@@ -246,6 +250,8 @@ export class CodexSDK extends EventEmitter {
     this.OdosSDK = new Odos(this.http);
     this.OnramperSDK = new Onramper(this.http);
     this.ThorswapSDK = new Thorswap(this.http);
+    this.AavepoolSDK = new Aavepool(this.http);
+    this.Aavev3RewardsSDK = new Aavev3Rewards(this.http);
 
     this.connect();
   }
@@ -399,6 +405,13 @@ export class CodexSDK extends EventEmitter {
 
   public getThorswapSDK(): Thorswap {
     return this.ThorswapSDK;
+  }
+  public getAavepoolSDK(): Aavepool {
+    return this.AavepoolSDK;
+  }
+
+  public getAavev3RewardsSDK(): Aavev3Rewards {
+    return this.Aavev3RewardsSDK;
   }
 
   /**
